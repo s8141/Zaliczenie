@@ -7,6 +7,7 @@ import studia.Zaliczenie;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class Uczelnia {
 	public String Nazwa;
 

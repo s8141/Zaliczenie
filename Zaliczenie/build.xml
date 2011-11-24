@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+	
+<project name="Zaliczenie" default="jar" basedir=".">
+
+<property name="src" location="src"/>
+<property name="build" location="build"/>
+<property name="jar" location="jar"/>
+<property name="api" location="api"/>
+	
+<target name="init">
+        <mkdir dir="${build}"/>
+        <mkdir dir="${jar}"/>
+        <mkdir dir="${api}"/>
+</target>
+	
+	
+	
+
+<target name="kompilacja" depends="init">
+        <javac srcdir="${src}" destdir="${build}"/>
+</target>
+
+	
+<target name="api" depends="kompilacja">
+	        <javadoc sourcepath="${src}"
+	        destdir="${api}"
+	        sourcefiles="${src}/*.java"/>
+</target>
+	
+	
+<target name="jar" depends="kompilacja">
+        <jar jarfile="${jar}/Zaliczenie.jar" basedir="${build}"/>
+</target>
+	
+	
+
+<target name="clean">
+        <delete dir="${build}"/>
+        <delete dir="${jar}"/>
+	    <delete dir="${api}"/>
+</target>
+</project>
+
