@@ -11,10 +11,19 @@ import studia.Student;
 import studia.Uczelnia;
 
 
-public class UczelniaTest {
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+
+public class UczelniaTest {  
+	
+	Uczelnia u=new Uczelnia("ug");
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
+		
+		
 	}
 
 	@AfterClass
@@ -23,6 +32,8 @@ public class UczelniaTest {
 
 	@Before
 	public void setUp() throws Exception {
+		
+		
 	}
 
 	@After
@@ -31,22 +42,35 @@ public class UczelniaTest {
 
 	@Test
 	public void testUczelnia() {
-		fail("Not yet implemented");
+		//fail("Not yet implemented");
+		
+		assertTrue(u.getNazwa().equals("ug"));
+		assertEquals(u.getNazwa(), "ug");
+
 	}
 
 	@Test
 	public void testGetNazwa() {
-		fail("Not yet implemented");
+		//fail("Not yet implemented"); 
+		
+		assertSame(u.getNazwa(), "ug");
 	}
 
 	@Test
 	public void testSetNazwa() {
-		fail("Not yet implemented");
+		//fail("Not yet implemented");
+	
+		u.setNazwa("ug1");
+        assertTrue(u.getNazwa().equals("ug1"));
+
+	
 	}
 
 	@Test
 	public void testGetStudenci() {
-		fail("Not yet implemented");
+		//fail("Not yet implemented");
+		
+	
 	}
 
 	@Test
@@ -68,16 +92,14 @@ public class UczelniaTest {
 	public void testAddLekcja() {
 		
 	
-	//	Lekcja l=new Lekcje("kakak");
-	//	l.add.Lekcje(l);
-		
-	//	assertTrue("nie dodało elementu ", l.getLekcje());
-		
 	}
 
 	@Test
 	public void testAddStudent() {
-		fail("Not yet implemented");
+		
+
+		
+		
 	}
 
 	@Test
@@ -94,9 +116,9 @@ public class UczelniaTest {
 	public void testRemoveStudent() {
 		
 		
-		Uczelnia u=new Uczelnia("pjwww");
 		
-		u.addStudent(new Student("Kjsjks", "Rusdkskld", 347645));
+		
+		u.addStudent(new Student("Kjsjks", "Rusdkskld", ""));
 		assertNotNull(u.studenci);
 	}
 

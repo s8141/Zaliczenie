@@ -3,9 +3,9 @@ package studia;
 public class Student {
 	private String imie;
 	private String nazwisko;
-	private int indeks;
+	private String indeks;
 
-	public Student(String imie, String nazwisko, int indeks) {
+	public Student(String imie, String nazwisko, String indeks) {
 		this.imie = imie;
 		this.nazwisko = nazwisko;
 		this.indeks = indeks;
@@ -33,11 +33,11 @@ public class Student {
 		this.nazwisko = nazwisko;
 	}
 
-	public int getIndeks() {
+	public String getIndeks() {
 		return this.indeks;
 	}
 
-	public void setIndeks(int indeks) {
+	public void setIndeks(String indeks) {
 		this.indeks = indeks;
 	}
 }

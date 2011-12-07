@@ -15,6 +15,8 @@ public class Uczelnia {
 	public List<Lekcja> lekcje = new ArrayList<Lekcja>();
 	public List<Zaliczenie> zaliczenia = new ArrayList<Zaliczenie>();
 
+	public Object add;
+
 	public Uczelnia(String nazwa) {
 		this.Nazwa = nazwa;
 	}
@@ -60,7 +62,7 @@ public class Uczelnia {
 		throw new IllegalStateException("Brak takiej lekcji");
 	}
 	
-	public Student getStudent(int indeks) {
+	public Student getStudent(String indeks) {
 		for (Student student : studenci) {
 			if(student.getIndeks() == indeks) {
 				return student;
@@ -69,7 +71,7 @@ public class Uczelnia {
 		throw new IllegalStateException("Brak studenta o takim indeksie: " + indeks);
 	}
 	
-	public boolean removeStudent(int indeks) {
+	public boolean removeStudent(String indeks) {
 		Student student = this.getStudent(indeks);
 		return studenci.remove(student);
 	}
