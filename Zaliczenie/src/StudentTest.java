@@ -33,7 +33,12 @@ public class StudentTest {
 
 	@Test
 	public void testSetImie() {
-		fail("Not yet implemented");
+		
+		
+		s.setImie("imi");
+        assertTrue(s.getImie().equals("imi"));
+
+		
 	}
 
 	@Test
@@ -45,7 +50,11 @@ public class StudentTest {
 
 	@Test
 	public void testSetNazwisko() {
-		fail("Not yet implemented");
+		
+		s.setNazwisko("nazwisko");
+        assertTrue(s.getNazwisko().equals("nazwiasko"));
+
+		
 	}
 
 	@Test
@@ -58,7 +67,9 @@ public class StudentTest {
 	@Test
 	public void testSetIndeks() {
 		
-		
+		s.setIndeks("indeks");
+        assertFalse(s.getIndeks().equals("indeks"));
+
 	}
 
 }

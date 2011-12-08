@@ -46,7 +46,7 @@ public class UczelniaTest {
 		
 		assertTrue(u.getNazwa().equals("ug"));
 		assertEquals(u.getNazwa(), "ug");
-
+        assertFalse(u.getNazwa().equals("ug"));
 	}
 
 	@Test
@@ -80,7 +80,9 @@ public class UczelniaTest {
 
 	@Test
 	public void testGetLekcje() {
-		fail("Not yet implemented");
+		//fail("Not yet implemented");
+		
+		
 	}
 
 	@Test
@@ -98,7 +100,8 @@ public class UczelniaTest {
 	public void testAddStudent() {
 		
 
-		
+		u.addStudent(new Student("Kjsjks", "Rusdkskld", "123"));
+		assertNull(u.studenci);
 		
 	}
 
@@ -118,7 +121,7 @@ public class UczelniaTest {
 		
 		
 		
-		u.addStudent(new Student("Kjsjks", "Rusdkskld", ""));
+		u.addStudent(new Student("Kjsjks", "Rusdkskld", "123"));
 		assertNotNull(u.studenci);
 	}
 
