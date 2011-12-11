@@ -1,3 +1,4 @@
+package studia;
 import studia.*;
 
 
