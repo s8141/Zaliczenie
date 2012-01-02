@@ -16,7 +16,10 @@ public class StudentTest {
 		assertTrue(s.getNazwisko().equals("nazwisk"));
 		assertEquals(s.getImie(), "imi");
 	
-
+		
+		assertTrue(s.getImie().equals("Juzio"));
+		assertEquals("naz", s.getNazwisko());
+		
 		
 	}
 
@@ -29,7 +32,7 @@ public class StudentTest {
 	public void testGetImie() {
 		
 		assertSame(s.getImie(), "imi");
-		
+		assertEquals("Kuba", s.getImie());
 	}
 
 	@Test
@@ -38,8 +41,7 @@ public class StudentTest {
 		
 		s.setImie("imi");
         assertTrue(s.getImie().equals("imi"));
-
-		
+		assertEquals("Joanna", s.getImie());
 	}
 
 	@Test
@@ -53,8 +55,9 @@ public class StudentTest {
 	public void testSetNazwisko() {
 		
 		s.setNazwisko("nazwisko");
-        assertTrue(s.getNazwisko().equals("nazwiasko"));
-
+        assertTrue(s.getNazwisko().equals("nazwiasko"));      
+		assertFalse(s.getNazwisko()=="Chmiel");
+		assertEquals("Nazwisko", s.getNazwisko());
 		
 	}
 
@@ -68,8 +71,10 @@ public class StudentTest {
 	@Test
 	public void testSetIndeks() {
 		
-		s.setIndeks("indeks");
-        assertFalse(s.getIndeks().equals("indeks"));
+		s.setIndeks("7777");
+        assertFalse(s.getIndeks().equals("7777"));
+        
+     
 
 	}
 

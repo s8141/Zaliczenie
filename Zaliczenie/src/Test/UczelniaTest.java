@@ -1,26 +1,44 @@
 package Test;
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+
+
+
+
+
+
+
+
 import studia.Lekcja;
+import studia.Ocena;
 import studia.Student;
 import studia.Uczelnia;
+import studia.Zaliczenie;
 
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 public class UczelniaTest {  
 	
+	private List<Student> student = new ArrayList<Student>();
+    private List<Zaliczenie> zaliczenie = new ArrayList<Zaliczenie>();
+	
 	Uczelnia u=new Uczelnia("ug");
-
+	
+	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 		
@@ -52,49 +70,56 @@ public class UczelniaTest {
 
 	@Test
 	public void testGetNazwa() {
-		//fail("Not yet implemented"); 
+		
 		
 		assertSame(u.getNazwa(), "ug");
+		assertEquals("ug", u.getNazwa());
 	}
 
 	@Test
 	public void testSetNazwa() {
-		//fail("Not yet implemented");
+	
 	
 		u.setNazwa("ug1");
         assertTrue(u.getNazwa().equals("ug1"));
-
+    	
+        assertEquals("ug", u.getNazwa());
 	
 	}
 
 	@Test
 	public void testGetStudenci() {
-		//fail("Not yet implemented");
 		
+
+		u.getStudent("Kowalski");
+        assertTrue(u.getStudenci().equals("Kowalski"));
+    	
+        assertEquals("Chmiel", u.getStudenci());
 	
 	}
 
 	@Test
 	public void testSetStudenci() {
-		fail("Not yet implemented");
+		
 	}
 
 	@Test
 	public void testGetLekcje() {
-		//fail("Not yet implemented");
+		
 		
 		
 	}
 
 	@Test
 	public void testSetLekcje() {
-		fail("Not yet implemented");
+
 	}
 
 	@Test
 	public void testAddLekcja() {
 		
-	
+	     u.addLekcja(new Lekcja("wf"));
+	     assertNull(u.lekcje);
 	}
 
 	@Test
@@ -108,18 +133,18 @@ public class UczelniaTest {
 
 	@Test
 	public void testGetLekcja() {
-		fail("Not yet implemented");
+		assertEquals("new", u.getLekcje());
 	}
 
 	@Test
 	public void testGetStudent() {
-		fail("Not yet implemented");
+		assertEquals("Kowalski","Jan", u.getStudenci());
+		
+		
 	}
 
 	@Test
 	public void testRemoveStudent() {
-		
-		
 		
 		
 		u.addStudent(new Student("Kjsjks", "Rusdkskld", "123"));
@@ -128,10 +153,15 @@ public class UczelniaTest {
 
 	@Test
 	public void testAddZaliczenie() {
-		fail("Not yet implemented");
+		
+		zaliczenie.add(new Zaliczenie(u.getStudent("3888"), 
+				u.getLekcja("pmt"), 
+				Ocena.DWA));
+		assertTrue(zaliczenie.size()==5);
 		
 		
 	}
+	
 
 	@Test
 	public void testPrintStudentci() {
@@ -153,4 +183,18 @@ public class UczelniaTest {
 		fail("Not yet implemented");
 	}
 
+	public void testsearchStudentByImie(){
+		u.addStudent(new Student("Ilona", "Nowak","5555"));
+		assertNotNull(u.getStudenci());
+	}
+	
+    public void testsearchStudentByNazwisko(){
+    	assertNotNull(u.searchStudentByNazwisko("Chmiel"));
+	}
+    
+    public void testsearchStudentByIndeks(){
+    	assertNotNull(u.searchStudentByIndeks("8745"));
+	}
+	
+	
 }

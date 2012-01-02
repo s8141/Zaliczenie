@@ -27,6 +27,15 @@ public class Main {
 		uczelnia.addLekcja(new Lekcja("ANGIELKSI"));
 		uczelnia.addLekcja(new Lekcja("WF"));
 		
+		
+		 // uczelnia.printStudentci();
+	     // uczelnia.printStudentByImie("Kuba");
+	     // uczelnia.printStudentByNazwisko("Chmiel");
+	     //uczelnia.printStudentByPhrase("cek");
+	     // uczelnia.printStudentByIndeks("8431");
+	     
+	      
+		
 		try {
 			uczelnia.addZaliczenie(new Zaliczenie(
 				uczelnia.getStudent("3487"), 
@@ -51,5 +60,7 @@ public class Main {
 		//uczelnia.printStudentci();
 		uczelnia.printZaliczenia();
 	}
-
+  
+        
+         
 }

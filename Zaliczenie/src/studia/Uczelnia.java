@@ -4,8 +4,11 @@ import studia.Lekcja;
 import studia.Student;
 import studia.Zaliczenie;
 
+import java.rmi.MarshalException;
 import java.util.ArrayList;
 import java.util.List;
+
+
 
 
 public class Uczelnia {
@@ -71,11 +74,80 @@ public class Uczelnia {
 		throw new IllegalStateException("Brak studenta o takim indeksie: " + indeks);
 	}
 	
-	public boolean removeStudent(String indeks) {
-		Student student = this.getStudent(indeks);
-		return studenci.remove(student);
-	}
+	/* metody do szukania studentów  */
+
+  
+     
+                                       /*
+	                                    public ArrayList<Student> searchStudentByPhrase (String phrase) {
+	        
+                                        ArrayList<Student> a = new ArrayList<Student>();
+        
+                                        for (Student s : studenci) {
+                                        if (s.getImie().toLowerCase().indexOf(phrase.toLowerCase()) != -1
+                                        || s.getNazwisko().toLowerCase().indexOf(phrase) != -1) {
+        
+                                        a.add(s);
+                                        }
+                                        }
+		                                return a;
+
+      
+                                        }
+                                        */     
+          public ArrayList<Student> searchStudentByImie (String imie)/* throws MarshalException */{
+        
+         ArrayList<Student> a = new ArrayList<Student>();
+        
+         for (Student s : studenci) {
+         if (s.getImie() == imie) {
+         a.add(s);
+         }
+         }
+        
+       /*  if (a.isEmpty()) throw new MarshalException("Brak studenta o imieniu" + imie + ".");
+         else return a;  */
+         return a;
+          }
+          
+          public ArrayList<Student> searchStudentByNazwisko (String nazwisko)  {
+              
+              ArrayList<Student> a = new ArrayList<Student>();
+             
+              for (Student s : studenci) {
+              if (s.getNazwisko() == nazwisko) {
+              a.add(s);
+              }
+              }
+             
+             
+               return a;
+               }
+               
+          public ArrayList<Student> searchStudentByIndeks (String indeks)  {
+              
+              ArrayList<Student> a = new ArrayList<Student>();
+             
+              for (Student s : studenci) {
+              if (s.getIndeks() == indeks) {
+              a.add(s);
+              }
+              }
+             
+             
+               return a;
+               }
+          
+          
+     /*metoda do usowania studentow*/  
+          
+     public boolean removeStudent(String indeks) {
+ 		Student student = this.getStudent(indeks);
+ 		return studenci.remove(student);
+ 	}
+ 	
 	
+     
 	public void addZaliczenie(Zaliczenie zaliczenie) {
 		zaliczenia.add(zaliczenie);
 	}
@@ -102,6 +174,41 @@ public class Uczelnia {
 			zaliczenie.printZaliczenie();
 		}
 	}
+	
+	public void printStudentByNazwisko (String nazwisko) {
+      
+        System.out.println("Student o nazwisku " + nazwisko + ": ");
+        System.out.println(searchStudentByNazwisko(nazwisko) + "\n");
+     
+       
+	}
+     /*    
+       public void printStudentByPhrase (String phrase) {
+
+        System.out.println("student z fraza " + phrase + ": ");
+        printStudentByPhrase(searchStudentByPhrase(phrase));
+      
+      }
+       */  
+        public void printStudentByImie (String imie) {
+       // try {
+        System.out.println("student o imieniu " + imie + ": ");
+        System.out.println(searchStudentByImie(imie) + "\n");
+       // printStudentByPhrase(searchStudentByImie(imie));
+       //  } catch (MarshalException e) {
+       //   e.print();
+       //  }
+         }
+        
+        
+        public void printStudentByIndeks (String indeks) {
+            
+            System.out.println("Student o indeksie " + indeks + ": ");
+            System.out.println(searchStudentByIndeks(indeks) + "\n");
+         
+           
+    	}
+             
 	
 	public void printAll() {
 		this.printLekcje();
