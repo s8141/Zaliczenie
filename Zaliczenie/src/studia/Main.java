@@ -61,6 +61,5 @@ public class Main {
 		uczelnia.printZaliczenia();
 	}
   
-        
-         
+	
 }
