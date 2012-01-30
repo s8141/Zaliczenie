@@ -1,4 +1,11 @@
 package studia;
+
+
+
+
+import com.pl.kasia.services.LekcjaDBManager;
+import com.pl.kasia.services.StudentDBManager;
+
 import studia.*;
 
 
@@ -34,8 +41,29 @@ public class Main {
 	     //uczelnia.printStudentByPhrase("cek");
 	     // uczelnia.printStudentByIndeks("8431");
 	     
-	      
-		
+		 StudentDBManager db = new StudentDBManager ();
+	     db.DodajStudent(new Student("Adam","Kniter", "2554"));  
+	     db.DodajStudent(new Student ("Ilona", "Maœlak", "5655"));
+	     
+	     LekcjaDBManager db1 = new LekcjaDBManager();
+	     db1.DodajLekcje(new Lekcja("francuski"));
+	
+	     Lekcja Lekcja1 = new Lekcja ( "niemiecki");
+	     db1.DodajLekcje(Lekcja1);
+	     db1.ZnajdzLekcjePoNazwie("niemiecki");
+	     
+	     Lekcja Lekcja2 = new Lekcja ( "rosyjski");
+	     db1.DodajLekcje(Lekcja2);
+	     db1.ZnajdzLekcjePoNazwie("rosyjski");
+	     
+	
+	     Lekcja Lekcja3 = new Lekcja ( "angielski");
+	 	 db1.DodajLekcje(Lekcja3);
+	 	 db1.ZnajdzLekcjePoNazwie("angielski");
+	 	 
+	 	 db1.UsunLekcje(null);
+	 	
+	 	
 		try {
 			uczelnia.addZaliczenie(new Zaliczenie(
 				uczelnia.getStudent("3487"), 
